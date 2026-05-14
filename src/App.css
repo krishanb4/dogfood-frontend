@@ -2,6 +2,191 @@
    $DOGFOOD Farm — App Styles (Mobile-First)
    ══════════════════════════════════════════════════════ */
 
+/* ── Onboarding ────────────────────────────────────── */
+.onboarding-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #0a0a1a 0%, #0f1a2e 50%, #0a0a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.onboarding-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+
+.onboarding-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.onboarding-subtitle {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.onboarding-steps {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.step-dot.active {
+  background: rgba(247, 183, 24, 0.15);
+  border-color: #F7B718;
+  color: #F7B718;
+}
+
+.step-dot.current {
+  background: #F7B718;
+  border-color: #F7B718;
+  color: #000;
+  box-shadow: 0 0 16px rgba(247, 183, 24, 0.5);
+}
+
+.onboarding-step {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.onboarding-step h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+.onboarding-step p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.rainbowkit-wrapper {
+  margin-top: 8px;
+}
+
+.wallet-address-badge {
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-family: monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sign-error {
+  font-size: 12px;
+  color: #ff6b6b;
+  text-align: center;
+  margin: 0;
+}
+
+.onboarding-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Outfit', sans-serif;
+}
+
+.onboarding-btn.primary {
+  background: linear-gradient(135deg, #F7B718, #F59E0B);
+  color: #000;
+}
+
+.onboarding-btn.primary:disabled {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.25);
+  cursor: not-allowed;
+}
+
+.onboarding-btn.primary:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(247, 183, 24, 0.4);
+}
+
+.onboarding-btn.ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  padding: 8px;
+}
+
+.onboarding-btn.ghost:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.onboarding-input {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 15px;
+  font-family: 'Outfit', sans-serif;
+  outline: none;
+  text-align: center;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.onboarding-input:focus {
+  border-color: rgba(247, 183, 24, 0.5);
+}
+
+.onboarding-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 /* ── Canvas Container ──────────────────────────────── */
 #canvas-container {
   width: 100vw;

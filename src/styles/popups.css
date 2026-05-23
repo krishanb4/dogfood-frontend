@@ -1,530 +1,61 @@
-/* popups.css — Shared styling for all popup panels (Shop, Inventory,
-   Leaderboard, DailyGoals, GoalComplete). One file so colour palette /
-   spacing / mobile breakpoints stay in sync. */
+/*
+  popups.css — Minimal legacy shim.
+  All visual design is now Tailwind (index.css).
+  This file only keeps the old dfg-* class aliases used by the
+  GoalCompletePopup confetti animation so it still compiles.
+*/
 
-/* ── Colour palette ───────────────────────────────────────────────────── */
-:root {
-  --dfg-gold:        #F7B718;
-  --dfg-gold-dk:     #E59E0B;
-  --dfg-orange:      #FF8A00;
-  --dfg-pink:        #FF5C8A;
-  --dfg-purple:      #8B5CF6;
-  --dfg-cyan:        #22D3EE;
-  --dfg-green:       #34D399;
-  --dfg-green-dk:    #059669;
-  --dfg-bg-1:        rgba(20, 20, 30, 0.92);
-  --dfg-bg-2:        rgba(35, 35, 50, 0.95);
-  --dfg-card-bg:     rgba(255, 255, 255, 0.05);
-  --dfg-card-hover:  rgba(255, 255, 255, 0.10);
-  --dfg-card-border: rgba(255, 255, 255, 0.10);
-  --dfg-text:        #F3F4F6;
-  --dfg-text-dim:    rgba(243, 244, 246, 0.65);
-  --dfg-shadow-lg:   0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
-}
-
-/* ── Generic popup shell (overlay + card) ─────────────────────────────── */
-.dfg-overlay {
-  position: fixed; inset: 0;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.55), rgba(0,0,0,0.85));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px;
-  z-index: 1000;
-  animation: dfg-fade-in 0.25s ease-out;
-}
-@keyframes dfg-fade-in { from { opacity: 0; } to { opacity: 1; } }
-
-.dfg-card {
-  background: linear-gradient(180deg, var(--dfg-bg-1), var(--dfg-bg-2));
-  border-radius: 24px;
-  box-shadow: var(--dfg-shadow-lg);
-  max-width: 520px; width: 100%;
-  max-height: 88vh; overflow-y: auto;
-  color: var(--dfg-text);
-  font-family: 'Outfit', system-ui, sans-serif;
-  position: relative;
-  animation: dfg-pop-in 0.32s cubic-bezier(.34,1.56,.64,1);
-}
-@keyframes dfg-pop-in {
-  from { transform: scale(0.85) translateY(20px); opacity: 0; }
-  to   { transform: scale(1) translateY(0); opacity: 1; }
-}
-
-.dfg-card-header {
-  padding: 22px 24px 14px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 12px;
-  position: sticky; top: 0;
-  background: linear-gradient(180deg, var(--dfg-bg-1), rgba(20,20,30,0.6));
-  backdrop-filter: blur(6px);
-  border-radius: 24px 24px 0 0;
-  z-index: 1;
-}
-.dfg-card-title {
-  font-size: 22px; font-weight: 900; letter-spacing: 0.5px;
-  background: linear-gradient(135deg, var(--dfg-gold), var(--dfg-orange));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-  display: flex; align-items: center; gap: 10px;
-}
-.dfg-card-close {
-  background: rgba(255,255,255,0.08);
-  border: none; color: var(--dfg-text);
-  width: 36px; height: 36px; border-radius: 50%;
-  font-size: 20px; cursor: pointer; transition: all 0.15s;
-}
-.dfg-card-close:hover { background: rgba(255,255,255,0.18); transform: rotate(90deg); }
-
-.dfg-card-body { padding: 16px 24px 24px; }
-
-/* ── Item grid (Shop / Inventory) ─────────────────────────────────────── */
-.dfg-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 14px;
-}
-
-.dfg-item {
-  position: relative;
-  background: var(--dfg-card-bg);
-  border: 1px solid var(--dfg-card-border);
-  border-radius: 16px;
-  padding: 16px 12px 14px;
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center;
-  transition: transform 0.15s, background 0.15s, border-color 0.15s;
-  cursor: pointer;
-  overflow: hidden;
-}
-.dfg-item:hover:not(.dfg-item--disabled) {
-  background: var(--dfg-card-hover);
-  border-color: var(--dfg-gold);
-  transform: translateY(-3px);
-}
-.dfg-item--disabled { opacity: 0.45; cursor: not-allowed; }
-
-.dfg-item--vitamin {
-  background: linear-gradient(160deg, rgba(139, 92, 246, 0.12), rgba(255, 92, 138, 0.10));
-  border-color: rgba(139, 92, 246, 0.35);
-}
-.dfg-item--vitamin:hover:not(.dfg-item--disabled) { border-color: var(--dfg-purple); }
-
-.dfg-item-icon { font-size: 44px; line-height: 1; margin-bottom: 4px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4)); }
-.dfg-item-name { font-size: 15px; font-weight: 700; margin: 6px 0 2px; }
-.dfg-item-meta { font-size: 11px; color: var(--dfg-text-dim); margin-bottom: 8px; min-height: 14px; }
-.dfg-item-price {
-  display: inline-flex; align-items: center; gap: 4px;
-  background: linear-gradient(135deg, var(--dfg-gold), var(--dfg-orange));
-  color: #1a1a1a; font-weight: 800; font-size: 13px;
-  padding: 4px 10px; border-radius: 999px;
-}
-.dfg-item-count {
-  position: absolute; top: 8px; right: 8px;
-  background: var(--dfg-green);
-  color: #062b1f; font-weight: 800; font-size: 11px;
-  padding: 2px 8px; border-radius: 999px;
-}
-
-/* Goal tag chip */
-.dfg-goal-tag {
-  display: inline-block;
-  font-size: 10px; font-weight: 800; letter-spacing: 0.5px;
-  padding: 2px 8px; border-radius: 999px;
-  background: rgba(34, 211, 238, 0.18);
-  color: var(--dfg-cyan);
-  margin-top: 4px;
-}
-.dfg-goal-tag--breakfast { background: rgba(247, 183, 24, 0.18); color: var(--dfg-gold); }
-.dfg-goal-tag--lunch     { background: rgba(255, 92, 138, 0.18); color: var(--dfg-pink); }
-.dfg-goal-tag--dinner    { background: rgba(139, 92, 246, 0.18); color: var(--dfg-purple); }
-
-/* Buy / feed action button (large CTA) */
-.dfg-action-btn {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border: none; border-radius: 12px;
-  background: linear-gradient(135deg, var(--dfg-gold), var(--dfg-orange));
-  color: #1a1a1a; font-weight: 800; font-size: 14px;
-  cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.15s;
-  position: relative; overflow: hidden;
-}
-.dfg-action-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(247,183,24,0.35); }
-.dfg-action-btn:active { transform: translateY(1px); }
-.dfg-action-btn--green { background: linear-gradient(135deg, var(--dfg-green), var(--dfg-green-dk)); color: #fff; }
-.dfg-action-btn--green:hover { box-shadow: 0 8px 20px rgba(52,211,153,0.4); }
-.dfg-action-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
-
-/* Ripple animation on buy/feed */
-.dfg-action-btn.dfg-pulse::after {
-  content: ""; position: absolute; inset: 0;
-  background: rgba(255,255,255,0.6);
-  animation: dfg-ripple 0.45s ease-out;
-}
-@keyframes dfg-ripple {
-  0%   { transform: scale(0.2); opacity: 0.8; border-radius: 50%; }
-  100% { transform: scale(2.5); opacity: 0; border-radius: 50%; }
-}
-
-/* "+N points" / "+N tokens" floater animation */
-.dfg-float {
-  position: absolute; bottom: 50%; left: 50%;
-  transform: translate(-50%, 0);
-  color: var(--dfg-green); font-weight: 900; font-size: 14px;
-  pointer-events: none;
-  animation: dfg-float-up 0.9s ease-out forwards;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-}
-@keyframes dfg-float-up {
-  0%   { opacity: 0; transform: translate(-50%, 10px); }
-  20%  { opacity: 1; }
-  100% { opacity: 0; transform: translate(-50%, -50px); }
-}
-
-/* ── Balance bar (sticky footer in panels) ────────────────────────────── */
-.dfg-balance-bar {
-  margin-top: 16px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 16px;
-  background: rgba(247, 183, 24, 0.08);
-  border: 1px solid rgba(247, 183, 24, 0.2);
-  border-radius: 14px;
-  font-weight: 700;
-}
-.dfg-balance-bar-label { color: var(--dfg-text-dim); font-size: 13px; }
-.dfg-balance-bar-value {
-  background: linear-gradient(135deg, var(--dfg-gold), var(--dfg-orange));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 18px; font-weight: 900;
-}
-
-/* ── Tabs (Shop has Food / Vitamins) ──────────────────────────────────── */
-.dfg-tabs {
-  display: flex; gap: 6px;
-  background: rgba(255,255,255,0.04);
-  padding: 4px; border-radius: 12px;
-  margin-bottom: 16px;
-}
-.dfg-tab {
-  flex: 1; padding: 8px 12px;
-  border: none; background: transparent;
-  color: var(--dfg-text-dim); font-weight: 700; font-size: 13px;
-  border-radius: 9px; cursor: pointer;
-  transition: all 0.15s;
-}
-.dfg-tab--active {
-  background: linear-gradient(135deg, var(--dfg-gold), var(--dfg-orange));
-  color: #1a1a1a;
-}
-
-/* ── Progress-ring wrapper for an icon button.
-   Driven by inline style `--pct: 0..100`. A conic-gradient on the wrapper
-   paints a 3px ring around the inner .help-btn — green slice for the
-   completed portion, faint white for the remainder. */
-.dfg-progress-btn {
-  display: inline-flex;
-  border-radius: 50%;
-  padding: 3px;
-  background: conic-gradient(
-    var(--dfg-green) calc(var(--pct, 0) * 1%),
-    rgba(255, 255, 255, 0.18) 0
-  );
-  transition: background 0.4s ease;
-}
-.dfg-progress-btn > .help-btn { margin: 0; }
-
-/* Smaller close button for compact panels (e.g. DailyGoals header). */
-.dfg-card-close--sm {
-  width: 24px; height: 24px;
-  margin-left: 8px;
-  font-size: 14px;
-}
-
-/* ── Corner panel (non-modal floating card, e.g. Inventory) ───────────── */
-.dfg-corner-panel {
-  position: fixed;
-  bottom: 24px; right: 24px;
-  width: 380px;
-  max-width: 90vw;
-  max-height: 70vh;
-  z-index: 200;
-  background: linear-gradient(180deg, var(--dfg-bg-1), var(--dfg-bg-2));
-  border-radius: 20px;
-  box-shadow: var(--dfg-shadow-lg);
-  color: var(--dfg-text);
-  font-family: 'Outfit', sans-serif;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  animation: dfg-pop-in 0.32s cubic-bezier(.34,1.56,.64,1);
-}
-.dfg-corner-panel .dfg-card-header {
-  border-radius: 20px 20px 0 0;
-}
-.dfg-corner-panel .dfg-grid {
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.dfg-corner-panel .dfg-item { padding: 12px 8px 12px; }
-.dfg-corner-panel .dfg-item-icon { font-size: 36px; }
-
-/* When a popup is showing, hide the in-canvas YOU + player-name labels so
-   they don't bleed through on top of the popup. drei <Html> portals into
-   the Canvas parent so we can target them with body-scoped CSS. */
-body.dfg-popup-open .you-label,
-body.dfg-popup-open .player-label {
-  display: none !important;
-}
-
-/* ── Daily Goals panel (top-right floating card) ──────────────────────── */
-.dfg-goals-panel {
-  position: fixed;
-  top: 130px; right: 24px;
-  width: 240px;
-  padding: 16px;
-  background: linear-gradient(180deg, rgba(35,35,50,0.95), rgba(20,20,30,0.95));
-  border: 1px solid var(--dfg-card-border);
-  border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
-  font-family: 'Outfit', sans-serif;
-  color: var(--dfg-text);
-  z-index: 50;
-}
-.dfg-goals-title {
-  font-size: 13px; font-weight: 800; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--dfg-text-dim);
-  margin-bottom: 12px; display: flex; align-items: center; gap: 6px;
-}
-.dfg-goal-row {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 12px; margin-bottom: 6px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 12px;
-  border-left: 3px solid transparent;
-  transition: all 0.25s;
-}
-.dfg-goal-row--done {
-  background: linear-gradient(90deg, rgba(52,211,153,0.18), rgba(52,211,153,0.05));
-  border-left-color: var(--dfg-green);
-}
-.dfg-goal-icon { font-size: 20px; }
-.dfg-goal-info { flex: 1; }
-.dfg-goal-label { font-size: 13px; font-weight: 700; line-height: 1.2; }
-.dfg-goal-reward { font-size: 11px; color: var(--dfg-gold); font-weight: 700; }
-.dfg-goal-check {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(255,255,255,0.06);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 900;
-  color: transparent; transition: all 0.25s;
-}
-.dfg-goal-row--done .dfg-goal-check {
-  background: var(--dfg-green); color: #062b1f;
-}
-.dfg-goals-progress {
-  margin-top: 10px; height: 6px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 999px; overflow: hidden;
-}
-.dfg-goals-progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--dfg-green), var(--dfg-gold));
-  transition: width 0.4s ease;
-}
-.dfg-goals-reset {
-  margin-top: 8px; text-align: center;
-  font-size: 11px; color: var(--dfg-text-dim);
-}
-
-/* ── Leaderboard panel (toggleable side) ──────────────────────────────── */
-.dfg-leaderboard {
-  position: fixed;
-  top: 90px; bottom: 24px; right: 24px;
-  width: 320px;
-  background: linear-gradient(180deg, rgba(35,35,50,0.96), rgba(20,20,30,0.96));
-  border: 1px solid var(--dfg-card-border);
-  border-radius: 18px;
-  box-shadow: var(--dfg-shadow-lg);
-  display: flex; flex-direction: column;
-  color: var(--dfg-text);
-  font-family: 'Outfit', sans-serif;
-  z-index: 60;
-  animation: dfg-slide-in 0.3s ease-out;
-}
-@keyframes dfg-slide-in {
-  from { transform: translateX(40px); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
-}
-.dfg-leaderboard-header {
-  padding: 16px 18px 12px;
-  display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid var(--dfg-card-border);
-}
-.dfg-leaderboard-title {
-  font-size: 18px; font-weight: 900;
-  background: linear-gradient(135deg, var(--dfg-gold), var(--dfg-orange));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-  display: flex; align-items: center; gap: 8px;
-}
-.dfg-leaderboard-list { flex: 1; overflow-y: auto; padding: 8px 8px 16px; }
-.dfg-lb-row {
-  display: grid; grid-template-columns: 32px 1fr auto;
-  align-items: center; gap: 10px;
-  padding: 10px 12px;
-  margin: 4px 0;
-  background: rgba(255,255,255,0.03);
-  border-radius: 10px;
-  border-left: 3px solid transparent;
-  transition: background 0.15s;
-}
-.dfg-lb-row:hover { background: rgba(255,255,255,0.06); }
-.dfg-lb-row--self {
-  background: linear-gradient(90deg, rgba(247,183,24,0.15), rgba(255,138,0,0.05));
-  border-left-color: var(--dfg-gold);
-}
-.dfg-lb-rank {
-  font-weight: 900; font-size: 15px; text-align: center;
-  color: var(--dfg-text-dim);
-}
-.dfg-lb-rank--1 { color: #FFD700; }
-.dfg-lb-rank--2 { color: #C0C0C0; }
-.dfg-lb-rank--3 { color: #CD7F32; }
-.dfg-lb-name {
-  display: flex; flex-direction: column;
-  min-width: 0;
-}
-.dfg-lb-name-text {
-  font-weight: 700; font-size: 13px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.dfg-lb-name-meta { font-size: 10px; color: var(--dfg-text-dim); }
-.dfg-lb-score {
-  font-weight: 900; font-size: 14px;
-  color: var(--dfg-gold);
-}
-
-/* ── Goal Complete popup (celebration) ────────────────────────────────── */
+/* Legacy aliases — kept only for GoalCompletePopup confetti */
 .dfg-celebrate {
   position: fixed; inset: 0;
   display: flex; align-items: center; justify-content: center;
   pointer-events: none;
   z-index: 2000;
 }
-.dfg-celebrate-card {
-  background: linear-gradient(160deg, var(--dfg-gold), var(--dfg-orange) 55%, var(--dfg-pink));
-  color: #1a1a1a;
-  padding: 26px 36px;
-  border-radius: 22px;
-  font-family: 'Outfit', sans-serif;
-  text-align: center;
-  box-shadow: 0 24px 80px rgba(247,183,24,0.6), 0 0 0 2px rgba(255,255,255,0.4);
-  animation: dfg-celebrate-in 0.5s cubic-bezier(.2,1.2,.4,1.4), dfg-celebrate-out 0.4s ease-in 1.6s forwards;
-}
-@keyframes dfg-celebrate-in {
-  from { transform: scale(0.5) rotate(-10deg); opacity: 0; }
-  to   { transform: scale(1) rotate(0); opacity: 1; }
-}
-@keyframes dfg-celebrate-out {
-  to { transform: scale(0.9) translateY(-30px); opacity: 0; }
-}
-.dfg-celebrate-icon { font-size: 56px; margin-bottom: 6px; }
-.dfg-celebrate-title { font-size: 24px; font-weight: 900; letter-spacing: 1px; margin-bottom: 4px; }
-.dfg-celebrate-reward { font-size: 18px; font-weight: 800; }
-.dfg-celebrate-sub { font-size: 13px; opacity: 0.7; margin-top: 6px; }
-
-/* Confetti dots (CSS-only, no library) */
 .dfg-confetti { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .dfg-confetti span {
   position: absolute; width: 8px; height: 8px;
-  top: 50%; left: 50%;
-  border-radius: 2px;
-  animation: dfg-confetti-burst 1.4s ease-out forwards;
-}
-@keyframes dfg-confetti-burst {
-  to {
-    transform:
-      translate(var(--dx, 100px), var(--dy, -100px))
-      rotate(var(--rot, 360deg));
-    opacity: 0;
-  }
+  top: 50%; left: 50%; border-radius: 2px;
+  animation: confetti-burst 1.4s ease-out forwards;
 }
 
-/* ── Score / Level pill above top-bar ─────────────────────────────────── */
-.dfg-score-card {
-  background: linear-gradient(135deg, rgba(35,35,50,0.95), rgba(20,20,30,0.95));
-  border: 1px solid var(--dfg-card-border);
-  border-radius: 16px;
-  padding: 8px 16px;
-  display: flex; align-items: center; gap: 14px;
-  color: var(--dfg-text); font-family: 'Outfit', sans-serif;
-}
-.dfg-score-card .label { font-size: 11px; color: var(--dfg-text-dim); letter-spacing: 1px; text-transform: uppercase; }
-.dfg-score-card .value {
-  font-weight: 900; font-size: 18px;
-  background: linear-gradient(135deg, var(--dfg-gold), var(--dfg-orange));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-.dfg-score-card .level-badge {
-  background: linear-gradient(135deg, var(--dfg-purple), var(--dfg-pink));
-  color: #fff; font-weight: 900; font-size: 12px;
-  padding: 3px 8px; border-radius: 999px;
+/* celebrate-out — applied programmatically after 1.6 s */
+.dfg-celebrate-out {
+  animation: celebrate-out 0.38s ease-in forwards;
 }
 
-/* ── Mobile responsive ────────────────────────────────────────────────── */
-@media (max-width: 720px) {
-  .dfg-card { max-width: 100%; max-height: 92vh; border-radius: 20px 20px 0 0; align-self: flex-end; }
-  .dfg-overlay { align-items: flex-end; padding: 0; }
-  .dfg-card-header { padding: 18px 18px 12px; }
-  .dfg-card-title { font-size: 18px; }
-  .dfg-card-body { padding: 12px 16px 20px; }
-  .dfg-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .dfg-item { padding: 12px 8px 12px; }
-  .dfg-item-icon { font-size: 36px; }
-
-  /* DailyGoals: float just below the score row instead of the bottom
-     strip — the bottom of the viewport is reserved for the joystick. */
-  .dfg-goals-panel {
-    top: 100px;
-    bottom: auto;
-    right: 12px;
-    left: 12px;
-    width: auto;
-    padding: 12px;
-    max-height: 55vh;
-    overflow-y: auto;
-  }
-  .dfg-goal-row { padding: 8px 10px; }
-
-  .dfg-leaderboard {
-    top: 90px; bottom: auto;
-    right: 8px; left: 8px;
-    width: auto;
-    max-height: 55vh;
-    border-radius: 18px;
-  }
-
-  .dfg-corner-panel {
-    bottom: auto;
-    top: 130px;
-    right: 8px; left: 8px;
-    width: auto; max-width: none;
-    border-radius: 18px;
-    max-height: 50vh;
-  }
-
-  .dfg-celebrate-card { padding: 22px 26px; }
-  .dfg-celebrate-icon { font-size: 46px; }
-  .dfg-celebrate-title { font-size: 20px; }
-
-  .dfg-score-card { padding: 6px 12px; gap: 10px; }
-  .dfg-score-card .value { font-size: 15px; }
+/* dfg-float — used by ShopPanel / InventoryPanel */
+.dfg-float {
+  position: absolute; bottom: 50%; left: 50%;
+  transform: translateX(-50%);
+  color: #2DD4A0; font-weight: 900; font-size: 13px;
+  pointer-events: none;
+  animation: float-up 0.9s ease-out forwards;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  white-space: nowrap;
 }
 
-@media (max-width: 420px) {
-  .dfg-grid { grid-template-columns: 1fr 1fr; }
-  .dfg-goals-panel .dfg-goal-label { font-size: 12px; }
+/* dfg-pulse — ripple on buy/feed button */
+.dfg-pulse::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.45);
+  animation: ripple 0.45s ease-out;
+  border-radius: inherit;
+  pointer-events: none;
 }
+
+/* dfg-progress-btn */
+.dfg-progress-btn {
+  display: inline-flex; border-radius: 9999px; padding: 3px;
+  background: conic-gradient(
+    #2DD4A0 calc(var(--pct, 0) * 1%),
+    rgba(255,255,255,0.12) 0
+  );
+  transition: background 0.4s ease;
+}
+.dfg-progress-btn > .help-btn { margin: 0; }
+
+/* suppress 3D labels when popup is open */
+body.dfg-popup-open .you-label,
+body.dfg-popup-open .player-label { display: none !important; }

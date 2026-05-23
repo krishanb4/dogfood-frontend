@@ -1,14 +1,165 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ─── Light Mini-Game Design Tokens ─────────────────────────────────────── */
+@theme {
+  /* Typography — Fredoka for UI, Mochiy Pop One for branded/logo moments */
+  --font-sans:    'Fredoka', system-ui, sans-serif;
+  --font-display: 'Mochiy Pop One', 'Fredoka', system-ui, sans-serif;
+
+  /* Backgrounds */
+  --color-bg-panel:    #FAF5FF;
+  --color-bg-soft:     #F4E8FF;
+  --color-bg-subtle:   #FDFAFF;
+
+  /* Brand palette — pastel + vibrant */
+  --color-primary:     #A78BFA;
+  --color-primary-dk:  #7C5CFC;
+  --color-pink:        #FF6B9D;
+  --color-rose:        #FFB1C8;
+  --color-gold:        #FFB800;
+  --color-gold-lt:     #FFD15C;
+  --color-coral:       #FF8A65;
+  --color-coral-dk:    #E85B3A;
+  --color-mint:        #10D9A0;
+  --color-mint-lt:     #6CE5C2;
+  --color-cyan:        #06B6D4;
+  --color-amber:       #FF8C00;
+
+  /* Text — dark plum, never pure black */
+  --color-ink:         #2D1B4E;
+  --color-ink-2:       #6B5B8B;
+  --color-ink-3:       #A89DBD;
+  --color-ink-4:       #C7BFD9;
+
+  /* Borders */
+  --color-line:        #EBE3FA;
+  --color-line-strong: #D4C5F9;
+
+  /* Keyframe animations */
+  --animate-pop-in:     pop-in 0.34s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-fade-in:    fade-in 0.22s ease-out;
+  --animate-slide-in:   slide-in 0.28s ease-out;
+  --animate-celebrate:  celebrate-in 0.48s cubic-bezier(0.17, 0.89, 0.32, 1.28);
+  --animate-bounce-dog: bounce-dog 1s ease-in-out infinite;
+  --animate-load-bar:   load-bar 2.5s ease-in-out forwards;
+  --animate-pulse-urgnt:pulse-urgent 1s ease-in-out infinite;
+  --animate-wobble:     wobble 0.6s ease-in-out;
 }
 
-html, body, #root {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  font-family: 'Outfit', sans-serif;
+@keyframes pop-in {
+  from { transform: scale(0.88) translateY(18px); opacity: 0; }
+  to   { transform: scale(1) translateY(0);       opacity: 1; }
 }
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-in {
+  from { transform: translateX(28px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes celebrate-in {
+  from { transform: scale(0.5) rotate(-9deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0);       opacity: 1; }
+}
+@keyframes celebrate-out {
+  to { transform: scale(0.9) translateY(-22px); opacity: 0; }
+}
+@keyframes bounce-dog {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+@keyframes load-bar {
+  0%   { width: 0; }
+  100% { width: 100%; }
+}
+@keyframes pulse-urgent {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+@keyframes wobble {
+  0%, 100% { transform: rotate(0); }
+  25%      { transform: rotate(-2deg); }
+  75%      { transform: rotate(2deg); }
+}
+@keyframes float-up {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  20%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-50px); }
+}
+@keyframes ripple {
+  0%   { transform: scale(0.3); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+@keyframes confetti-burst {
+  to {
+    transform: translate(var(--dx, 100px), var(--dy, -100px)) rotate(var(--rot, 360deg));
+    opacity: 0;
+  }
+}
+
+/* ─── Base Reset ──────────────────────────────────────────────────────────
+   Tailwind v4 preflight already resets margin/padding and sets
+   box-sizing: border-box on *, ::before, ::after. Adding a bare
+   `* { margin: 0; padding: 0 }` here would land OUTSIDE @layer and
+   override Tailwind's `p-*`/`m-*` utilities (which live inside
+   @layer utilities). Don't reintroduce it. */
+@layer base {
+  html, body, #root {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    font-family: 'Fredoka', system-ui, sans-serif;
+  }
+}
+
+/* ─── JS-driven animation helpers ───────────────────────────────────────── */
+
+/* Ripple on buy/feed click */
+.ui-pulse::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(255, 255, 255, 0.55);
+  animation: ripple 0.45s ease-out;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* "+1 to inventory" floater */
+.ui-float {
+  position: absolute; bottom: 50%; left: 50%;
+  transform: translateX(-50%);
+  color: #10D9A0; font-weight: 900; font-size: 13px;
+  pointer-events: none;
+  animation: float-up 0.9s ease-out forwards;
+  text-shadow: 0 2px 6px rgba(45, 27, 78, 0.18);
+  white-space: nowrap;
+}
+
+/* Confetti */
+.ui-confetti-piece {
+  position: absolute; width: 8px; height: 8px;
+  top: 50%; left: 50%; border-radius: 2px;
+  animation: confetti-burst 1.4s ease-out forwards;
+}
+
+/* Progress ring */
+.ui-progress-ring {
+  display: inline-flex; border-radius: 9999px; padding: 3px;
+  background: conic-gradient(
+    #10D9A0 calc(var(--pct, 0) * 1%),
+    #EBE3FA 0
+  );
+  transition: background 0.4s ease;
+}
+.ui-progress-ring > .help-btn { margin: 0; }
+
+/* Hide 3D labels when popup is open */
+body.dfg-popup-open .you-label,
+body.dfg-popup-open .player-label { display: none !important; }
+
+/* Light-themed scrollbar */
+.ui-scroll::-webkit-scrollbar { width: 6px; }
+.ui-scroll::-webkit-scrollbar-track { background: transparent; }
+.ui-scroll::-webkit-scrollbar-thumb { background: #D4C5F9; border-radius: 3px; }
+.ui-scroll::-webkit-scrollbar-thumb:hover { background: #A78BFA; }
+.ui-scroll { scrollbar-width: thin; scrollbar-color: #D4C5F9 transparent; }

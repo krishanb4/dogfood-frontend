@@ -54,6 +54,8 @@ interface GameStore {
   setIsFreeView: (v: boolean) => void;
   showMobileMenu: boolean;
   setShowMobileMenu: (v: boolean) => void;
+  showDeposit: boolean;
+  setShowDeposit: (v: boolean) => void;
 }
 
 const EMPTY_INVENTORY: Inventory = { bone: 0, meat: 0, kibble: 0, vitamin: 0, premium: 0, boost: 0 };
@@ -116,6 +118,7 @@ export const useGameStore = create<GameStore>((set) => ({
   showGoals: typeof window !== "undefined" ? window.innerWidth > 640 : true,
   isFreeView: false,
   showMobileMenu: false,
+  showDeposit: false,
 
   setMapLoaded: (v) => set({ mapLoaded: v }),
   setShowLoading: (v) => set({ showLoading: v }),
@@ -126,4 +129,5 @@ export const useGameStore = create<GameStore>((set) => ({
   setShowGoals: (v) => set({ showGoals: v }),
   setIsFreeView: (v) => set({ isFreeView: v }),
   setShowMobileMenu: (v) => set({ showMobileMenu: v }),
+  setShowDeposit: (v) => set({ showDeposit: v }),
 }));

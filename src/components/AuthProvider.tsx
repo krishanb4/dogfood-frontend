@@ -51,27 +51,34 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         new SiweMessage({
           domain:    window.location.host,
           address,
-          statement: "Sign in to $DOGFOOD Farm",
+          statement: "Sign in to $OISHII Farm",
           uri:       window.location.origin,
           version:   "1",
           chainId,
           nonce,
-        }),
+        }).prepareMessage(),
 
-      getMessageBody: ({ message }) => message.prepareMessage(),
+      getMessageBody: ({ message }) => message,
 
       verify: async ({ message, signature }) => {
-        const res = await fetch(`${AUTH}/verify`, {
-          method:  "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-          body: JSON.stringify({ message: message.prepareMessage(), signature }),
-        });
-        if (res.ok) {
+        try {
+          const res = await fetch(`${AUTH}/verify`, {
+            method:  "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({ message, signature }),
+          });
+          if (!res.ok) {
+            const err = await res.json().catch(() => ({})) as { error?: string };
+            console.error("[auth] verify failed:", res.status, err.error);
+            return false;
+          }
           await fetchSession();
           return true;
+        } catch (err) {
+          console.error("[auth] verify error:", err);
+          return false;
         }
-        return false;
       },
 
       signOut: async () => {

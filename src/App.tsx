@@ -23,6 +23,7 @@ import { LoadingScreen } from "./components/ui/LoadingScreen";
 import { HowToPlay } from "./components/ui/HowToPlay";
 import { Joystick } from "./components/ui/Joystick";
 import { OnboardingPage } from "./components/ui/OnboardingPage";
+import { DepositPanel } from "./components/ui/DepositPanel";
 import { useGameStore } from "./store/gameStore";
 import type {
   SlotPosition,
@@ -31,7 +32,7 @@ import type {
   JoystickState,
 } from "./types";
 
-const BACKEND_URL = process.env.VITE_BACKEND_URL || "http://localhost:5010";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5010";
 
 // ── Dog House positions ───────────────────────────────────────────────────
 function generatePositions(): SlotPosition[] {
@@ -139,6 +140,7 @@ export default function App() {
   const upsertPlayer = useGameStore((s) => s.upsertPlayer);
   const removePlayer = useGameStore((s) => s.removePlayer);
   const updatePlayerLevel = useGameStore((s) => s.updatePlayerLevel);
+  const leaderboard    = useGameStore((s) => s.leaderboard);
   const setLeaderboard = useGameStore((s) => s.setLeaderboard);
   const inventory = useGameStore((s) => s.inventory);
   const addInventoryItem = useGameStore((s) => s.addInventoryItem);
@@ -165,6 +167,8 @@ export default function App() {
   const setIsFreeView = useGameStore((s) => s.setIsFreeView);
   const showMobileMenu = useGameStore((s) => s.showMobileMenu);
   const setShowMobileMenu = useGameStore((s) => s.setShowMobileMenu);
+  const showDeposit = useGameStore((s) => s.showDeposit);
+  const setShowDeposit = useGameStore((s) => s.setShowDeposit);
 
   const socketRef = useRef<Socket | null>(null);
   const playerStateRef = useRef<PlayerStateRef | null>(null);
@@ -194,10 +198,11 @@ export default function App() {
       showInventory ||
       showHowToPlay ||
       showLeaderboard ||
+      showDeposit ||
       !!goalEvent;
     document.body.classList.toggle("dfg-popup-open", open);
     return () => document.body.classList.remove("dfg-popup-open");
-  }, [showShopPanel, showInventory, showHowToPlay, showLeaderboard, goalEvent]);
+  }, [showShopPanel, showInventory, showHowToPlay, showLeaderboard, showDeposit, goalEvent]);
 
   // Close mobile menu on outside click
   useEffect(() => {
@@ -431,7 +436,7 @@ export default function App() {
       <div className="game-logo">
         <span className="logo-icon">🐕</span>
         <span className="logo-text">
-          <span>$DOG</span>FOOD
+          <span>$OISHII</span>
         </span>
         <button
           className="help-btn dfg-desktop-only"
@@ -542,10 +547,15 @@ export default function App() {
         </div>
       </div>
 
-      <div className="balance-badge">
+      <button
+        type="button"
+        className="balance-badge"
+        onClick={() => setShowDeposit(true)}
+        title="Deposit $OISHII"
+      >
         <span>💰</span>
-        <span>{balance.toLocaleString()} $DOGFOOD</span>
-      </div>
+        <span>{balance.toLocaleString()} $OISHII</span>
+      </button>
 
       {user && showGoals && (
         <DailyGoals goals={dailyGoals} onClose={() => setShowGoals(false)} />
@@ -582,6 +592,13 @@ export default function App() {
         />
       )}
       {showHowToPlay && <HowToPlay onClose={() => setShowHowToPlay(false)} />}
+      {showDeposit && (
+        <DepositPanel
+          wallet={user?.wallet}
+          balance={balance}
+          onClose={() => setShowDeposit(false)}
+        />
+      )}
       <LoadingScreen isVisible={showLoading} />
 
       {(!user || !user.hasProfile) && <OnboardingPage />}

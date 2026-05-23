@@ -1,0 +1,466 @@
+[02:29:09.407] [INFO] Storybook upgrade - v10.4.0
+[02:29:09.410] [INFO] detect-projects-spinner-start: Detecting projects...
+[02:29:09.411] [DEBUG] Finding Storybook projects...
+[02:29:09.999] [DEBUG] Found 1 Storybook projects
+[02:29:10.002] [INFO] detect-projects-spinner: Detecting projects: 1 projects
+[02:29:10.002] [DEBUG] Getting Storybook data...
+[02:29:10.002] [DEBUG] Getting Storybook info...
+[02:29:10.007] [DEBUG] Loading main config...
+[02:29:10.007] [DEBUG] Getting stories paths...
+[02:29:10.018] [DEBUG] Getting package manager...
+[02:29:10.373] [DEBUG] Getting package.json info for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:10.373] [DEBUG] Getting Storybook version...
+[02:29:10.374] [DEBUG] Detecting CSF factory usage...
+[02:29:10.397] [DEBUG] /.storybook - Validating before version... 8.6.18
+[02:29:10.397] [DEBUG] /.storybook - Validating upgrade compatibility...
+[02:29:10.397] [DEBUG] /.storybook - Fetching NPM version information...
+[02:29:10.397] [DEBUG] Getting CLI versions from NPM for storybook...
+[02:29:10.397] [DEBUG] Executing command: pnpm info storybook version
+[02:29:10.402] [DEBUG] Getting CLI versions from NPM for storybook@next...
+[02:29:10.402] [DEBUG] Executing command: pnpm info storybook@next version
+[02:29:11.707] [DEBUG] /.storybook - Evaluating blockers...
+[02:29:11.717] [DEBUG] Getting installed version for @storybook/experimental-addon-test...
+[02:29:11.722] [DEBUG] Executing command: pnpm list "@storybook/experimental-addon-test" --json --depth=99
+[02:29:11.925] [DEBUG] No installations found for @storybook/experimental-addon-test
+[02:29:11.925] [INFO] detect-projects-spinner-stop: 1 project detected
+[02:29:11.926] [DEBUG] Found 1 valid projects and 0 error projects
+[02:29:11.926] [INFO] Upgrading from [1m8.6.18[22m to [1m10.4.0[22m
+[02:29:11.926] [DEBUG] Executing command: pnpm config get minimumReleaseAge
+[02:29:12.122] [INFO] upgrade-dependencies-task-start: Fetching versions to update package.json files..
+[02:29:12.122] [DEBUG] Updating dependencies in /.storybook...
+[02:29:12.122] [INFO] upgrade-dependencies-task: /package.json
+[02:29:12.123] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:12.123] [DEBUG] {
+  "upgradedDependencies": []
+}
+[02:29:12.123] [DEBUG] {
+  "upgradedDevDependencies": [
+    "@storybook/react@^10.4.0",
+    "@storybook/react-vite@^10.4.0",
+    "storybook@^10.4.0"
+  ]
+}
+[02:29:12.123] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[02:29:12.123] [DEBUG] Getting package.json info for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:12.123] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:12.123] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:12.124] [DEBUG] Getting package.json info for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:12.124] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:12.124] [DEBUG] Getting CLI versions from NPM for @storybook/react...
+[02:29:12.124] [DEBUG] Executing command: pnpm info @storybook/react version
+[02:29:13.223] [DEBUG] Getting CLI versions from NPM for @storybook/react-vite...
+[02:29:13.223] [DEBUG] Executing command: pnpm info @storybook/react-vite version
+[02:29:15.012] [DEBUG] Using cached version for storybook...
+[02:29:15.012] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:15.012] [DEBUG] Getting package.json info for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:15.012] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:15.012] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:15.012] [INFO] upgrade-dependencies-task-success: Updated package versions in package.json files
+[02:29:15.013] [INFO] detect-automigrations-task-start: Detecting automigrations...
+[02:29:15.013] [DEBUG] Starting automigration collection across 1 projects and 22 fixes...
+[02:29:15.013] [INFO] detect-automigrations-task: Checking automigrations for /.storybook...
+[02:29:15.013] [DEBUG] Processing project: /.storybook
+[02:29:15.013] [DEBUG] Checking fix eslintPlugin for project /.storybook...
+[02:29:15.013] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:15.013] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:15.014] [DEBUG] Checking fix addon-mdx-gfm-remove for project /.storybook...
+[02:29:15.014] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:15.014] [DEBUG] Checking fix addon-storysource-code-panel for project /.storybook...
+[02:29:15.014] [DEBUG] Checking fix upgrade-storybook-related-dependencies for project /.storybook...
+[02:29:15.014] [DEBUG] Checking for incompatible storybook packages...
+[02:29:15.014] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:15.016] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:15.016] [DEBUG] Getting installed version for @storybook/addon-essentials...
+[02:29:15.016] [DEBUG] Getting installed version for @storybook/addon-interactions...
+[02:29:15.016] [DEBUG] Getting installed version for @storybook/test...
+[02:29:15.016] [DEBUG] Executing command: pnpm list "@storybook/addon-essentials" --json --depth=99
+[02:29:15.017] [DEBUG] Executing command: pnpm list "@storybook/addon-interactions" --json --depth=99
+[02:29:15.018] [DEBUG] Executing command: pnpm list "@storybook/test" --json --depth=99
+[02:29:15.283] [DEBUG] No installations found for @storybook/test
+[02:29:15.283] [DEBUG] Getting CLI versions from NPM for @storybook/test...
+[02:29:15.283] [DEBUG] Executing command: pnpm info @storybook/test version
+[02:29:15.285] [DEBUG] No installations found for @storybook/addon-interactions
+[02:29:15.285] [DEBUG] Getting CLI versions from NPM for @storybook/addon-interactions...
+[02:29:15.285] [DEBUG] Executing command: pnpm info @storybook/addon-interactions version
+[02:29:15.287] [DEBUG] No installations found for @storybook/addon-essentials
+[02:29:15.287] [DEBUG] Getting CLI versions from NPM for @storybook/addon-essentials...
+[02:29:15.287] [DEBUG] Executing command: pnpm info @storybook/addon-essentials version
+[02:29:16.993] [DEBUG] Checking fix initial-globals for project /.storybook...
+[02:29:16.995] [DEBUG] Checking fix addon-globals-api for project /.storybook...
+[02:29:16.998] [DEBUG] Checking fix addon-a11y-addon-test for project /.storybook...
+[02:29:16.998] [DEBUG] Checking fix consolidated-imports for project /.storybook...
+[02:29:16.998] [DEBUG] Checking fix addon-experimental-test for project /.storybook...
+[02:29:16.998] [DEBUG] Using cached installed version for @storybook/experimental-addon-test...
+[02:29:16.998] [DEBUG] Checking fix rnstorybook-config for project /.storybook...
+[02:29:16.998] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:16.998] [DEBUG] Checking fix rn-ondevice-addons-to-device-addons for project /.storybook...
+[02:29:16.998] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:16.998] [DEBUG] Checking fix migrate-addon-console for project /.storybook...
+[02:29:16.998] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:16.998] [DEBUG] Checking fix nextjs-to-nextjs-vite for project /.storybook...
+[02:29:16.998] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:16.998] [DEBUG] Checking fix react-vite-to-tanstack-react for project /.storybook...
+[02:29:16.999] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:16.999] [DEBUG] Checking fix remove-addon-interactions for project /.storybook...
+[02:29:16.999] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:16.999] [DEBUG] Checking fix renderer-to-framework for project /.storybook...
+[02:29:16.999] [DEBUG] Checking fix remove-essential-addons for project /.storybook...
+[02:29:16.999] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:16.999] [DEBUG] Checking fix addon-a11y-parameters for project /.storybook...
+[02:29:16.999] [DEBUG] Checking fix remove-docs-autodocs for project /.storybook...
+[02:29:17.002] [DEBUG] Checking fix wrap-getAbsolutePath for project /.storybook...
+[02:29:17.004] [DEBUG] Checking fix fix-faux-esm-require for project /.storybook...
+[02:29:17.005] [DEBUG] Checking fix storybookPackageNameConflict for project /.storybook...
+[02:29:17.005] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[02:29:17.005] [INFO] detect-automigrations-task: 
+Automigrations detected:
+[02:29:17.006] [INFO] detect-automigrations-task: [32m[32m✔[32m addon-globals-api[39m
+[02:29:17.007] [INFO] detect-automigrations-task: [32m[32m✔[32m consolidated-imports[39m
+[02:29:17.007] [INFO] detect-automigrations-task: [32m[32m✔[32m remove-addon-interactions[39m
+[02:29:17.007] [INFO] detect-automigrations-task: [32m[32m✔[32m renderer-to-framework[39m
+[02:29:17.007] [INFO] detect-automigrations-task: [32m[32m✔[32m remove-essential-addons[39m
+[02:29:17.007] [INFO] detect-automigrations-task-success: 5 automigration(s) detected
+[03:14:42.983] [PROMPT] Select automigrations to run {"choice":["addon-globals-api","consolidated-imports","remove-addon-interactions","renderer-to-framework","remove-essential-addons"]}
+[03:14:42.990] [INFO] automigrate-/.storybook-task-start: Running automigrations for /.storybook
+[03:14:43.100] [INFO] automigrate-/.storybook-task: [32m[32m✔[32m addon-globals-api[39m
+[03:14:43.118] [INFO] automigrate-/.storybook-task: [32m[32m✔[32m consolidated-imports[39m
+[03:14:43.120] [DEBUG] Uninstalling @storybook/addon-interactions
+[03:14:43.120] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[03:14:43.120] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[03:14:43.120] [DEBUG] Removing '@storybook/addon-interactions' from main.js addons field.
+[03:14:43.122] [INFO] automigrate-/.storybook-task: [32m[32m✔[32m remove-addon-interactions[39m
+[03:14:43.122] [DEBUG] 
+Migrating @storybook/react to @storybook/react-vite
+[03:14:43.124] [DEBUG] Updating package.json files...
+[03:14:43.124] [INFO] automigrate-/.storybook-task: [32m[32m✔[32m renderer-to-framework[39m
+[03:14:43.125] [DEBUG] Uninstalling @storybook/addon-essentials
+[03:14:43.125] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[03:14:43.125] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[03:14:43.126] [DEBUG] Removing '@storybook/addon-essentials' from main.js addons field.
+[03:14:43.127] [DEBUG] Getting Storybook info...
+[03:14:43.132] [DEBUG] Loading main config...
+[03:14:43.132] [DEBUG] Getting stories paths...
+[03:14:43.133] [DEBUG] Getting package manager...
+[03:14:43.136] [DEBUG] Getting package.json info for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[03:14:43.136] [DEBUG] Getting Storybook version...
+[03:14:43.136] [DEBUG] Detecting CSF factory usage...
+[03:14:43.138] [INFO] Verifying @storybook/addon-docs
+[03:14:43.139] [DEBUG] Getting dependency version for storybook...
+[03:14:43.139] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[03:14:43.139] [INFO] Installing @storybook/addon-docs@^10.4.0
+[03:14:43.139] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[03:14:43.139] [DEBUG] Getting CLI versions from NPM for @storybook/addon-docs...
+[03:14:43.139] [DEBUG] Executing command: pnpm info @storybook/addon-docs version
+[03:14:45.144] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[03:14:45.144] [INFO] Adding '@storybook/addon-docs' to the "addons" field in /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/.storybook/main.ts
+[03:14:45.193] [INFO] automigrate-/.storybook-task: [32m[32m✔[32m remove-essential-addons[39m
+[03:14:45.193] [INFO] automigrate-/.storybook-task-success: Completed automigrations for /.storybook
+[03:14:45.193] [INFO] Installing dependencies...
+[03:14:45.193] [INFO] install-dependencies-spinner-start: Installing dependencies...
+[03:14:45.194] [DEBUG] Executing command: pnpm install
+[03:14:45.391] [INFO] Installing dependencies...:  WARN  Moving @storybook/react that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.391] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @storybook/r
+[03:14:45.391] [INFO] Installing dependencies...:  WARN  Moving @storybook/test that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.391] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @storybook/t
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving @tailwindcss/postcss that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @tailwindcss
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving @types/react that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @types/react
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving @types/react-dom that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @types/react
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving @types/three that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @types/three
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving @storybook/react-vite that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @storybook/r
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving @vitejs/plugin-react that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @vitejs/plug
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving autoprefixer that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving autoprefixer
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving postcss that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving postcss that
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving storybook that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving storybook th
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving tailwindcss that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving tailwindcss 
+[03:14:45.392] [INFO] Installing dependencies...:  WARN  Moving typescript that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.392] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving typescript t
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving vite that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving vite that wa
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving @storybook/addon-docs that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @storybook/a
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving @rainbow-me/rainbowkit that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @rainbow-me/
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving @react-three/drei that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @react-three
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving @react-three/fiber that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @react-three
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving @tailwindcss/vite that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @tailwindcss
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving @tanstack/react-query that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving @tanstack/re
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving canvas-confetti that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving canvas-confe
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving react that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving react that w
+[03:14:45.393] [INFO] Installing dependencies...:  WARN  Moving react-dom that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.393] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving react-dom th
+[03:14:45.394] [INFO] Installing dependencies...:  WARN  Moving react-icons that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.394] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving react-icons 
+[03:14:45.394] [INFO] Installing dependencies...:  WARN  Moving siwe that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.394] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving siwe that wa
+[03:14:45.394] [INFO] Installing dependencies...:  WARN  Moving socket.io-client that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.394] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving socket.io-cl
+[03:14:45.394] [INFO] Installing dependencies...:  WARN  Moving three that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.394] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving three that w
+[03:14:45.394] [INFO] Installing dependencies...:  WARN  Moving viem that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.394] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving viem that wa
+[03:14:45.394] [INFO] Installing dependencies...:  WARN  Moving wagmi that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.394] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving wagmi that w
+[03:14:45.394] [INFO] Installing dependencies...:  WARN  Moving zustand that was installed by a different package manager to "node_modules/.ignored"
+
+[03:14:45.394] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Moving zustand that
+[03:14:45.880] [INFO] Installing dependencies...: Progress: resolved 0, reused 1, downloaded 0, added 0
+
+[03:14:45.880] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 0, reu
+[03:14:46.869] [INFO] Installing dependencies...: Progress: resolved 20, reused 18, downloaded 0, added 0
+
+[03:14:46.869] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 20, re
+[03:14:47.870] [INFO] Installing dependencies...: Progress: resolved 28, reused 21, downloaded 2, added 0
+
+[03:14:47.870] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 28, re
+[03:14:48.871] [INFO] Installing dependencies...: Progress: resolved 106, reused 95, downloaded 8, added 0
+
+[03:14:48.871] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 106, r
+[03:14:49.870] [INFO] Installing dependencies...: Progress: resolved 133, reused 113, downloaded 10, added 0
+
+[03:14:49.870] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 133, r
+[03:14:50.871] [INFO] Installing dependencies...: Progress: resolved 209, reused 147, downloaded 19, added 0
+
+[03:14:50.871] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 209, r
+[03:14:51.871] [INFO] Installing dependencies...: Progress: resolved 249, reused 177, downloaded 28, added 0
+
+[03:14:51.871] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 249, r
+[03:14:52.871] [INFO] Installing dependencies...: Progress: resolved 315, reused 211, downloaded 39, added 0
+
+[03:14:52.871] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 315, r
+[03:14:53.872] [INFO] Installing dependencies...: Progress: resolved 335, reused 211, downloaded 41, added 0
+
+[03:14:53.872] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 335, r
+[03:14:54.879] [INFO] Installing dependencies...: Progress: resolved 364, reused 219, downloaded 44, added 0
+
+[03:14:54.879] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 364, r
+[03:14:55.879] [INFO] Installing dependencies...: Progress: resolved 404, reused 253, downloaded 47, added 0
+
+[03:14:55.879] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 404, r
+[03:14:56.880] [INFO] Installing dependencies...: Progress: resolved 443, reused 286, downloaded 54, added 0
+
+[03:14:56.880] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 443, r
+[03:14:57.880] [INFO] Installing dependencies...: Progress: resolved 469, reused 298, downloaded 62, added 0
+
+[03:14:57.880] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 469, r
+[03:14:58.881] [INFO] Installing dependencies...: Progress: resolved 506, reused 323, downloaded 75, added 0
+
+[03:14:58.881] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 506, r
+[03:14:59.881] [INFO] Installing dependencies...: Progress: resolved 545, reused 348, downloaded 89, added 0
+
+[03:14:59.881] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 545, r
+[03:15:00.880] [INFO] Installing dependencies...: Progress: resolved 564, reused 361, downloaded 100, added 0
+
+[03:15:00.880] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 564, r
+[03:15:01.881] [INFO] Installing dependencies...: Progress: resolved 590, reused 379, downloaded 104, added 0
+
+[03:15:01.881] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 590, r
+[03:15:02.886] [INFO] Installing dependencies...: Progress: resolved 599, reused 387, downloaded 107, added 0
+
+[03:15:02.886] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 599, r
+[03:15:03.888] [INFO] Installing dependencies...: Progress: resolved 618, reused 405, downloaded 108, added 0
+
+[03:15:03.888] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 618, r
+[03:15:04.888] [INFO] Installing dependencies...: Progress: resolved 668, reused 442, downloaded 118, added 0
+
+[03:15:04.888] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 668, r
+[03:15:05.887] [INFO] Installing dependencies...: Progress: resolved 684, reused 458, downloaded 121, added 0
+
+[03:15:05.887] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 684, r
+[03:15:06.889] [INFO] Installing dependencies...: Progress: resolved 692, reused 467, downloaded 121, added 0
+
+[03:15:06.889] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 692, r
+[03:15:07.890] [INFO] Installing dependencies...: Progress: resolved 738, reused 509, downloaded 121, added 0
+
+[03:15:07.890] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 738, r
+[03:15:08.891] [INFO] Installing dependencies...: Progress: resolved 777, reused 548, downloaded 128, added 0
+
+[03:15:08.891] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 777, r
+[03:15:09.892] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 0
+
+[03:15:09.892] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:11.483] [INFO] Installing dependencies...:  WARN  13 deprecated subdependencies found: @metamask/sdk-analytics@0.0.5, @metamask/sdk-communication-layer@0.33.1, @metamask/sdk-install-modal-web@0.32.1, @metamask/sdk@0.33.1, @paulmillr/qr@0.2.1, @safe-global/safe-gateway-typescript-sdk@3.23.1, @walletconnect/ethereum-provider@2.21.1, @walletconnect/sign-client@2.21.0, @walletconnect/sign-client@2.21.1, @walletconnect/universal-provider@2.21.0, @walletconnect/universal-provider@2.21.1, uuid@8.3.2, uuid@9.0.1
+
+[03:15:11.483] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  13 deprecated subde
+[03:15:11.533] [INFO] Installing dependencies...: Packages: +573 -6
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+
+[03:15:11.533] [INFO] install-dependencies-spinner: Installing dependencies...: Packages: +573 -6
++++++++
+[03:15:11.657] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 1
+
+[03:15:11.657] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:12.662] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 209
+
+[03:15:12.662] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:13.661] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 228
+
+[03:15:13.661] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:14.669] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 398
+
+[03:15:14.669] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:15.668] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 482
+
+[03:15:15.668] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:16.669] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 533
+
+[03:15:16.669] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:17.673] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 567
+
+[03:15:17.673] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:18.673] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 571
+
+[03:15:18.674] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:19.674] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 572
+
+[03:15:19.674] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:21.079] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 573
+
+[03:15:21.079] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:21.080] [INFO] Installing dependencies...: Progress: resolved 787, reused 558, downloaded 131, added 573, done
+
+[03:15:21.080] [INFO] install-dependencies-spinner: Installing dependencies...: Progress: resolved 787, r
+[03:15:21.692] [INFO] Installing dependencies...:  WARN  Issues with peer dependencies found
+.
+├─┬ wagmi 2.19.5
+│ └─┬ @wagmi/connectors 6.2.0
+│   └─┬ @walletconnect/ethereum-provider 2.21.1
+│     └─┬ @reown/appkit 1.7.8
+│       └─┬ valtio 1.13.2
+│         └─┬ use-sync-external-store 1.2.0
+│           └── ✕ unmet peer react@"^16.8.0 || ^17.0.0 || ^18.0.0": found 19.2.6
+└─┬ @storybook/test 8.6.18
+  ├── ✕ unmet peer storybook@^8.6.18: found 10.4.0
+  └─┬ @storybook/instrumenter 8.6.18
+    └── ✕ unmet peer storybook@^8.6.18: found 10.4.0
+
+[03:15:21.692] [INFO] install-dependencies-spinner: Installing dependencies...: WARN  Issues with peer de
+[03:15:21.693] [INFO] Installing dependencies...: 
+dependencies:
++ @rainbow-me/rainbowkit 2.2.11
++ @react-three/drei 10.7.7
++ @react-three/fiber 9.6.1
+- @tailwindcss/vite
++ @tailwindcss/vite 4.3.0
++ @tanstack/react-query 5.100.10
++ canvas-confetti 1.9.4
++ react 19.2.6
++ react-dom 19.2.6
++ react-icons 5.6.0
++ siwe 3.0.0
+- socket.io-client
++ socket.io-client 4.8.3
++ three 0.183.2
++ viem 2.49.2
++ wagmi 2.19.5 (3.6.15 is available)
++ zustand 5.0.13
+
+devDependencies:
++ @storybook/addon-docs 10.4.0
++ @storybook/react 10.4.0
++ @storybook/react-vite 10.4.0
++ @storybook/test 8.6.18
++ @tailwindcss/postcss 4.3.0
++ @types/react 19.2.14
++ @types/react-dom 19.2.3
++ @types/three 0.184.1
+- @vitejs/plugin-react
++ @vitejs/plugin-react 6.0.1
++ autoprefixer 10.5.0
++ postcss 8.5.14
++ storybook 10.4.0
++ tailwindcss 4.3.0
++ typescript 5.9.3 (6.0.3 is available)
+- vite
++ vite 8.0.11
+
+
+[03:15:21.693] [INFO] install-dependencies-spinner: Installing dependencies...: dependencies:
++ @rainbow-
+[03:15:21.699] [INFO] Installing dependencies...: ╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: bufferutil@4.1.0, esbuild@0.27.7, keccak@3.0.4,     │
+│   utf-8-validate@5.0.10.                                                     │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+[03:15:21.699] [INFO] install-dependencies-spinner: Installing dependencies...: ╭ Warning ───────────────
+[03:15:21.724] [INFO] Installing dependencies...: Done in 36.4s using pnpm v10.33.2
+
+[03:15:21.724] [INFO] install-dependencies-spinner: Installing dependencies...: Done in 36.4s using pnpm 
+[03:15:21.845] [INFO] Dependencies installed
+[03:15:21.845] [INFO] install-dependencies-spinner-stop: Dependencies installed
+[03:15:21.849] [INFO] Checking the health of your project(s)..
+[03:15:21.852] [DEBUG] Using cached package.json for /Users/krishanbandara/Documents/2026 new projects/oishii-project/dogfood-frontend/package.json...
+[03:15:21.853] [DEBUG] Executing command: pnpm list "@storybook/*" "storybook" --json --depth=99
+[03:15:22.708] [WARN] /.storybook: 1 issue found
+[03:15:22.709] [INFO] You are currently using Storybook [1m10.4.0[22m but you have packages which are incompatible with it:
+
+- @storybook/test@8.6.18 which depends on 8.6.18
+ Repo: https://github.com/storybookjs/storybook/tree/next/code/lib/test
+
+Please consider updating your packages or contacting the maintainers for compatibility details.
+
+For more details on compatibility guidance, see:
+https://github.com/storybookjs/storybook/issues/32836
+[03:15:22.710] [INFO] Storybook doctor is complete!
+[03:15:22.711] [INFO] You can always recheck the health of your project(s) by running:
+[36mnpx storybook doctor[39m
+[03:15:22.718] [INFO] [33mYour project(s) have been upgraded successfully, but some issues were found which need your attention, please check Storybook doctor logs above.[39m
+[03:15:22.720] [INFO] If you want to learn more about the automigrations that executed in your project(s), please check the following links:
+• ]8;;https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#viewportbackgrounds-addon-synchronized-configuration-and-globals-usageaddon-globals-api]8;;
+• ]8;;https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#dropped-support-for-legacy-packagesconsolidated-imports]8;;
+• ]8;;https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#essentials-addon-viewport-controls-interactions-and-actions-moved-to-coreremove-addon-interactions]8;;
+• ]8;;https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#moving-from-renderer-based-to-framework-based-configurationrenderer-to-framework]8;;
+• ]8;;https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#essentials-addon-viewport-controls-interactions-and-actions-moved-to-coreremove-essential-addons]8;;
+[03:15:22.727] [INFO] For a full list of changes, please check our migration guide: [36mhttps://storybook.js.org/docs/releases/migration-guide?ref=upgrade[39m
+[03:15:22.736] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry
+[03:15:25.192] [INFO] Storybook upgrade completed!
